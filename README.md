@@ -1,4 +1,4 @@
-# 📘 Proyecto: Gestor de Arrays en Java
+# 📘 Proyecto: Estructura de datos
 
 ## Descripción
 
