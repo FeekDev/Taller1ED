@@ -5,23 +5,26 @@ public class menu {
         Scanner scanner = new Scanner(System.in);
         int max;
         vectores vectores;
+        int opcion;
         System.out.print("Antes de iniciar, indique el tamaño del vector: ");
         max = scanner.nextInt();
         vectores = new vectores(max);
 
         System.out.println("Creando vector... \n");
-        
 
-        System.out.println("===== MENÚ PRINCIPAL =====");
-        System.out.println("1) Agregar persona");
-        System.out.println("2) Mostrar personas");
-        System.out.println("3) Eliminar persona");
-        System.out.println("4) Buscar persona");
-        System.out.println("5) Salir");
-        System.out.print("Seleccione una opcion: ");
+       
+        do {
 
-        int opcion = scanner.nextInt();
-        while (opcion != 5) {
+            System.out.println("\n===== MENÚ PRINCIPAL =====");
+            System.out.println("1) Agregar persona");
+            System.out.println("2) Mostrar personas");
+            System.out.println("3) Eliminar persona");
+            System.out.println("4) Buscar persona");
+            System.out.println("5) Salir");
+            System.out.print("\nSeleccione una opcion: ");
+            
+            opcion = scanner.nextInt();
+
             switch (opcion) {
                 case 1:
                     if (!vectores.vectorLleno()) {
@@ -45,8 +48,10 @@ public class menu {
                     break;
                 case 3:
                     if (!vectores.vectorVacio()) {
-                        System.out.print("Ingrese la posicion a eliminar (0 a " + vectores.getIndice() + "): ");
-                        int posicion = scanner.nextInt();
+                        String nombre;
+                        System.out.print("Ingrese el nombre de la persona: ");
+                        nombre = scanner.next();
+                        int posicion = vectores.buscarPersona(nombre);
                         vectores.eliminarPersona(posicion);
                     } else {
                         System.out.println("El vector esta vacio");
@@ -67,11 +72,9 @@ public class menu {
                     System.out.println("Opcion no valida");
             }
 
-            System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-        }
+        } while (opcion != 5);
 
-        System.out.println("Saliendo del sistema...");
-        scanner.close();
+        System.out.println("Saliendo del sistema");
+
     }
 }
