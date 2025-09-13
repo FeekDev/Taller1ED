@@ -11,8 +11,8 @@ public class matriz {
     public matriz(int filas, int columnas) {
         this.fila = filas;
         this.columna = columnas;
-        this.f = filas;
-        this.c = columnas;
+        this.f = 0;
+        this.c = 0;
         matriz = new persona[filas][columnas];
     }
 
@@ -76,4 +76,6 @@ public class matriz {
         }
 
     }
+
+    
 }

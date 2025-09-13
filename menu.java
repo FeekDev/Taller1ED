@@ -5,10 +5,12 @@ public class menu {
         Scanner scanner = new Scanner(System.in);
         int max;
         vectores vectores;
+        matriz matriz;
         int opcion;
         System.out.print("Antes de iniciar, indique el tamaño del vector: ");
         max = scanner.nextInt();
         vectores = new vectores(max);
+        matriz = new matriz(3, 3);
 
         System.out.println("Creando vector... \n");
 
@@ -39,6 +41,7 @@ public class menu {
 
                         persona p = new persona(nombre, apellido, peso, altura);
                         vectores.agregarPersona(p);
+                        matriz.agregar(p);
                     } else {
                         System.out.println("El vector esta lleno");
                     }
