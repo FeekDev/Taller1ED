@@ -76,6 +76,38 @@ public class matriz {
         }
 
     }
-
     
+    public void mostrarMatriz() {
+        if (!matrizVacia()) {
+            for (int i = 0; i < this.fila; i++) {
+                for (int j = 0; j < this.columna; j++) {
+                    if (matriz[i][j] != null) {
+                        System.out.print("[" + matriz[i][j].getNombre() + " " + matriz[i][j].getApellido() + "] ");
+                    } else {
+                        System.out.print("[ ] ");
+                    }
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("La matriz esta vacia");
+        }
+    }
+
+    public void buscarEnMatriz(String nombre) {
+        boolean encontrado = false;
+        for (int i = 0; i < this.fila; i++) {
+            for (int j = 0; j < this.columna; j++) {
+                if (matriz[i][j] != null && matriz[i][j].getNombre().equalsIgnoreCase(nombre)) {
+                    System.out.println("Persona encontrada en la posicion: [" + i + "][" + j + "]");
+                    encontrado = true;
+                    
+                }
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Persona no encontrada en la matriz");
+        }
+    }
+
 }
