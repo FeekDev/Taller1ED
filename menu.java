@@ -11,6 +11,8 @@ public class menu {
         max = scanner.nextInt();
         vectores = new vectores(max);
         matriz = new matriz(3, 3);
+        listaSimple lista = new listaSimple();
+        
 
         System.out.println("Creando vector... \n");
 
@@ -42,6 +44,7 @@ public class menu {
                         persona p = new persona(nombre, apellido, peso, altura);
                         vectores.agregarPersona(p);
                         matriz.agregar(p);
+                        lista.agregarAlInicio(p);
                     } else {
                         System.out.println("El vector esta lleno");
                     }
