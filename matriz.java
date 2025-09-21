@@ -94,20 +94,30 @@ public class matriz {
         }
     }
 
-    public void buscarEnMatriz(String nombre) {
-        boolean encontrado = false;
+    public void eliminar(int posicion) {
+        if (posicion != -1) {
+            int fila = posicion / this.columna;
+            int columna = posicion % this.columna;
+            matriz[fila][columna] = null;
+            System.out.println("Persona eliminada de la matriz");
+        } else {
+            System.out.println("No se puede eliminar, persona no encontrada");
+        }
+    }
+
+    public int buscarPersona(String nombre) {
+        int posicion = -1;
         for (int i = 0; i < this.fila; i++) {
             for (int j = 0; j < this.columna; j++) {
                 if (matriz[i][j] != null && matriz[i][j].getNombre().equalsIgnoreCase(nombre)) {
-                    System.out.println("Persona encontrada en la posicion: [" + i + "][" + j + "]");
-                    encontrado = true;
-                    
+                    posicion = i * this.columna + j;
                 }
             }
         }
-        if (!encontrado) {
+        if (posicion == -1) {
             System.out.println("Persona no encontrada en la matriz");
         }
+        return posicion;
     }
 
 }
