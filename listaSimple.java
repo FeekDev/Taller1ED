@@ -46,6 +46,17 @@ public class listaSimple {
         }
     }
 
+    public void eliminarDelInicio() {
+        if (!listaVacia()) {
+            inicio = inicio.getSiguiente();
+            if (inicio == null) {
+                fin = null;
+            }
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
+
     @Override
     public String toString() {
         // TODO Auto-generated method stub
