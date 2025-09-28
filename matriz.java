@@ -114,9 +114,6 @@ public class matriz {
                 }
             }
         }
-        if (posicion == -1) {
-            System.out.println("Persona no encontrada en la matriz");
-        }
         return posicion;
     }
 

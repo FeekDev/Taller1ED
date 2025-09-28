@@ -166,8 +166,14 @@ public class menu {
                             System.out.print("Ingrese el nombre a buscar: ");
                             String nombre = scanner.next();
                             nuevaMatriz.buscarPersona(nombre);
-                            System.out.println("persona encontrada: " + nombre +
-                                    " en la posicion " + nuevaMatriz.buscarPersona(nombre));
+                            
+                            if (nuevaMatriz.buscarPersona(nombre) != -1) {
+                                System.out.println("persona encontrada: " + nombre +
+                                        " en la posicion " + nuevaMatriz.buscarPersona(nombre));
+                            } else {
+                                System.out.println("Persona no encontrada en la matriz");
+                            }
+
                         } else {
                             System.out.println("La matriz esta vacia");
                         }
@@ -183,8 +189,6 @@ public class menu {
     }
 
     public void mostrarLista() {
-
-
 
         listaSimple lista = new listaSimple();
 
