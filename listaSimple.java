@@ -46,11 +46,36 @@ public class listaSimple {
         }
     }
 
-    public void eliminarDelInicio() {
+    public void eliminarDelInicio(String nombre) {
         if (!listaVacia()) {
-            inicio = inicio.getSiguiente();
-            if (inicio == null) {
-                fin = null;
+            if (inicio.getDato().getNombre().equalsIgnoreCase(nombre)) {
+                inicio = inicio.getSiguiente();
+                if (inicio == null) {
+                    fin = null;
+                }
+                System.out.println("Persona eliminada");
+            } else {
+                System.out.println("La persona no se encuentra al inicio de la lista");
+            }
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
+
+    public void buscarPersona(String nombre) {
+        if (!listaVacia()) {
+            nodo actual = inicio;
+            boolean encontrado = false;
+            while (actual != null) {
+                if (actual.getDato().getNombre().equalsIgnoreCase(nombre)) {
+                    System.out.println("Persona encontrada: " + actual.getDato().toString());
+                    encontrado = true;
+                    break;
+                }
+                actual = actual.getSiguiente();
+            }
+            if (!encontrado) {
+                System.out.println("Persona no encontrada");
             }
         } else {
             System.out.println("La lista esta vacia");
