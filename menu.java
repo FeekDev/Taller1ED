@@ -19,7 +19,8 @@ public class menu {
             System.out.println("1) Vector");
             System.out.println("2) Matriz");
             System.out.println("3) Lista Simple");
-            System.out.println("4) Salir");
+            System.out.println("4) Pila");
+            System.out.println("5) Salir");
             System.out.print("Seleccione una opcion: ");
             opcionMenu = scanner.nextInt();
 
@@ -34,6 +35,9 @@ public class menu {
                     mostrarLista();
                     break;
                 case 4:
+                    mostrarPila();
+                    break;
+                case 5:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
@@ -177,6 +181,11 @@ public class menu {
                         } else {
                             System.out.println("La matriz esta vacia");
                         }
+                    case 5:
+                        nuevaMatriz.mostrarDiagonal();
+                    case 6:
+                        System.out.println("Saliendo del programa..."); 
+                        break;
                     default:
                         break;
                 }
@@ -232,6 +241,54 @@ public class menu {
                         lista.buscarPersona(nombreBuscar);
                     } else {
                         System.out.println("La lista esta vacia");
+                    }
+                default:
+                    break;
+            }
+
+        } while (opcion != 5);
+    }
+
+    public void mostrarPila() {
+        pila nuevaPila = new pila();
+        
+        do {
+
+            mostrarOpciones();
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el nombre: ");
+                    String nombre = scanner.next();
+                    System.out.print("Ingrese el apellido: ");
+                    String apellido = scanner.next();
+                    System.out.print("Ingrese el peso: ");
+                    float peso = scanner.nextFloat();
+                    System.out.print("Ingrese la altura: ");
+                    float altura = scanner.nextFloat();
+
+                    persona p = new persona(nombre, apellido, peso, altura);
+                    nuevaPila.push(p);
+                    break;
+
+                case 2:
+                    nuevaPila.mostrarPila();
+                    break;
+                case 3:
+                    if (!nuevaPila.pilaVacia()) {
+                        nuevaPila.pop();
+                    } else {
+                        System.out.println("La pila esta vacia");
+                    }
+                    break;
+                case 4:
+                    if (!nuevaPila.pilaVacia()) {
+                        System.out.print("Ingrese el nombre a buscar: ");
+                        String nombreBuscar = scanner.next();
+                        nuevaPila.buscarEnPila(nombreBuscar);
+                    } else {
+                        System.out.println("La pila esta vacia");
                     }
                 default:
                     break;

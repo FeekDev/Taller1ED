@@ -67,5 +67,29 @@ public class pila {
         }
     }
 
+    public void mostrarPila() {
+        if (pilaVacia()) {
+            System.out.println("Pila vacia.");
+        } else {
+            System.out.println("Elementos en la pila:");
+            for (int i = tope; i >= 0; i--) {
+                System.out.println(pilaPrimaria[i]);
+            }
+        }
+    }
+
+    public void buscarEnPila(String nombre) {
+        boolean encontrado = false;
+        for (int i = 0; i <= tope; i++) {
+            if (pilaPrimaria[i].getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("Elemento encontrado: " + pilaPrimaria[i]);
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Elemento no encontrado en la pila.");
+        }
+    }
     
 }

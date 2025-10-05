@@ -56,7 +56,7 @@ public class matriz {
     }
 
     public boolean matrizLlena() {
-        if (this.f == this.fila - 1 && this.c == this.columna - 1)
+        if (this.f == this.fila && this.c == this.columna)
             return true;
         else
             return false;
@@ -115,6 +115,29 @@ public class matriz {
             }
         }
         return posicion;
+    }
+
+    public boolean matrizCuadrada() {
+        return this.fila == this.columna;
+    }
+
+    public void mostrarDiagonal() {
+        int peso = 0;
+        int promedio = 0;
+        if (matrizCuadrada()) {
+            promedio = this.fila;
+            System.out.println("Elementos en la diagonal principal:");
+            for (int i = 0; i < this.fila; i++) {
+                if (matriz[i][i] != null) {
+                    peso += matriz[i][i].getPeso();
+                } else {
+                    System.out.print("[ ] ");
+                }
+            }
+            System.out.println("El peso promedio en la diagonal principal: " + (peso / promedio));
+        } else {
+            System.out.println("La matriz no es cuadrada, no tiene diagonal principal.");
+        }
     }
 
 }
