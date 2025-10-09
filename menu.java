@@ -9,10 +9,9 @@ public class menu {
     protected listaSimple lista = new listaSimple();
     protected int max;
     protected matriz matriz;
+    protected int opcionMenu;
 
     public void mostrarMenu() {
-
-        int opcionMenu;
 
         do {
             System.out.println("\n===== MENÚ DE ESTRUCTURAS DE DATOS =====");
@@ -170,7 +169,7 @@ public class menu {
                             System.out.print("Ingrese el nombre a buscar: ");
                             String nombre = scanner.next();
                             nuevaMatriz.buscarPersona(nombre);
-                            
+
                             if (nuevaMatriz.buscarPersona(nombre) != -1) {
                                 System.out.println("persona encontrada: " + nombre +
                                         " en la posicion " + nuevaMatriz.buscarPersona(nombre));
@@ -182,15 +181,18 @@ public class menu {
                             System.out.println("La matriz esta vacia");
                         }
                     case 5:
-                        nuevaMatriz.mostrarDiagonal();
-                    case 6:
-                        System.out.println("Saliendo del programa..."); 
+                        nuevaMatriz.mostrarDiagonalPrincipal();
                         break;
+                    case 6:
+                        nuevaMatriz.mostrarDiagonalSecundaria();
+                        break;
+                    case 7:
+                        System.out.println("Saliendo de la matriz...");
                     default:
                         break;
                 }
 
-            } while (opcion != 5);
+            } while (opcion != 7);
 
         } else {
             System.out.println("La matriz esta vacia");
@@ -251,7 +253,7 @@ public class menu {
 
     public void mostrarPila() {
         pila nuevaPila = new pila();
-        
+
         do {
 
             mostrarOpciones();
@@ -298,13 +300,28 @@ public class menu {
     }
 
     public void mostrarOpciones() {
-        System.out.print("\nSeleccione una opcion: ");
-        System.out.println("\n===== MENÚ PRINCIPAL =====");
-        System.out.println("1) Agregar persona");
-        System.out.println("2) Mostrar personas");
-        System.out.println("3) Eliminar persona");
-        System.out.println("4) Buscar persona");
-        System.out.println("5) Salir");
+        // menu especial para matriz
+        if (opcionMenu == 2 && nuevaMatriz.matrizCuadrada()) {
+            System.out.print("\nSeleccione una opcion: ");
+            System.out.println("\n===== MENÚ PRINCIPAL =====");
+            System.out.println("1) Agregar persona");
+            System.out.println("2) Mostrar personas");
+            System.out.println("3) Eliminar persona");
+            System.out.println("4) Buscar persona");
+            System.out.println("5) Mostrar diagonal principal");
+            System.out.println("6) Mostrar diagonal secundaria");
+            System.out.println("7) Salir");
+        // otro menu para matriz no cuadrada o otros
+        } else if (opcionMenu == 2 || opcionMenu != 2) {
+            System.out.print("\nSeleccione una opcion: ");
+            System.out.println("\n===== MENÚ PRINCIPAL =====");
+            System.out.println("1) Agregar persona");
+            System.out.println("2) Mostrar personas");
+            System.out.println("3) Eliminar persona");
+            System.out.println("4) Buscar persona");
+            System.out.println("5) Salir");
+        }
+
     }
 
 }

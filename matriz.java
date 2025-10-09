@@ -121,7 +121,7 @@ public class matriz {
         return this.fila == this.columna;
     }
 
-    public void mostrarDiagonal() {
+    public void mostrarDiagonalPrincipal() {
         int peso = 0;
         int promedio = 0;
         if (matrizCuadrada()) {
@@ -134,9 +134,28 @@ public class matriz {
                     System.out.print("[ ] ");
                 }
             }
-            System.out.println("El peso promedio en la diagonal principal: " + (peso / promedio));
+            System.out.println("El peso promedio en la diagonal principal: " + (peso / promedio) + " kg");
         } else {
             System.out.println("La matriz no es cuadrada, no tiene diagonal principal.");
+        }
+    }
+
+    public void mostrarDiagonalSecundaria() {
+        double estatura = 0;
+        double promedio = 0;
+        if (matrizCuadrada()) {
+            promedio = this.fila;
+            System.out.println("Elementos en la diagonal secundaria:");
+            for (int i = 0; i < this.fila; i++) {
+                if (matriz[i][this.columna - 1 - i] != null) {
+                    estatura += matriz[i][this.columna - 1 - i].getAltura();
+                } else {
+                    System.out.print("[ ] ");
+                }
+            }
+            System.out.println("La estatura promedio en la diagonal secundaria: " + ((estatura / promedio) / 100) + " metros");
+        } else {
+            System.out.println("La matriz no es cuadrada, no tiene diagonal secundaria.");
         }
     }
 
