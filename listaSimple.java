@@ -1,17 +1,17 @@
 public class listaSimple {
-    
+
     protected nodo inicio;
     protected nodo fin;
-    
+
     public listaSimple() {
         this.inicio = null;
         this.fin = null;
     }
-    
+
     public boolean listaVacia() {
         return inicio == null;
     }
-    
+
     public void agregarAlInicio(persona p) {
         nodo nuevo = new nodo(p);
         if (listaVacia()) {
@@ -22,7 +22,7 @@ public class listaSimple {
             inicio = nuevo;
         }
     }
-    
+
     public void agregarAlFinal(persona p) {
         nodo nuevo = new nodo(p);
         if (listaVacia()) {
@@ -33,12 +33,17 @@ public class listaSimple {
             fin = nuevo;
         }
     }
-    
+
     public void mostrarLista() {
         if (!listaVacia()) {
             nodo actual = inicio;
             while (actual != null) {
-                System.out.println(actual.getDato().toString());
+                persona p = actual.getDato();
+                System.out.println(
+                        "Nombre: " + p.getNombre() +
+                                ", Apellido: " + p.getApellido() +
+                                ", Peso: " + p.getPeso() +
+                                ", Altura: " + p.getAltura());
                 actual = actual.getSiguiente();
             }
         } else {
@@ -53,7 +58,10 @@ public class listaSimple {
                 if (inicio == null) {
                     fin = null;
                 }
-                System.out.println("Persona eliminada");
+
+                persona p = inicio.getDato();
+                System.out.println("Persona eliminada: " + "Nombre: " + p.getNombre()
+                        + ", Apellido: " + p.getApellido());
             } else {
                 System.out.println("La persona no se encuentra al inicio de la lista");
             }
@@ -68,7 +76,10 @@ public class listaSimple {
             boolean encontrado = false;
             while (actual != null) {
                 if (actual.getDato().getNombre().equalsIgnoreCase(nombre)) {
-                    System.out.println("Persona encontrada: " + actual.getDato().toString());
+                    persona p = actual.getDato();
+                    System.out.println("Persona encontrada: " + "Nombre: " + p.getNombre() +
+                            ", Apellido: " + p.getApellido()
+                            + ", Altura: " + p.getAltura() + ", Peso: " + p.getPeso());
                     encontrado = true;
                     break;
                 }
@@ -81,11 +92,4 @@ public class listaSimple {
             System.out.println("La lista esta vacia");
         }
     }
-
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "ListaSimple [inicio=" + inicio + ", fin=" + fin + "]";
-    }
-    
 }

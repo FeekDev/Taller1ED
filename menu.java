@@ -18,7 +18,7 @@ public class menu {
             System.out.println("1) Vector");
             System.out.println("2) Matriz");
             System.out.println("3) Lista Simple");
-            System.out.println("4) Pila");
+            System.out.println("4) Pila (Proximamente)");
             System.out.println("5) Salir");
             System.out.print("Seleccione una opcion: ");
             opcionMenu = scanner.nextInt();
@@ -38,13 +38,16 @@ public class menu {
                     break;
                 case 5:
                     System.out.println("Saliendo del programa...");
-                    break;
+                    ;
                 default:
-                    System.out.println("Opcion no valida. Intente de nuevo.");
-                    break;
+                    if (opcionMenu != 5) {
+                        System.out.println("Opcion no valida. Intente de nuevo.");
+                        scanner.nextLine();  // Limpiar el buffer
+                        break;
+                    }
             }
 
-        } while (opcionMenu != 4);
+        } while (opcionMenu != 5);
     }
 
     public void mostrarVector() {
@@ -69,9 +72,9 @@ public class menu {
                             System.out.print("Ingrese el apellido: ");
                             String apellido = scanner.next();
                             System.out.print("Ingrese el peso: ");
-                            float peso = scanner.nextFloat();
+                            int peso = scanner.nextInt();
                             System.out.print("Ingrese la altura: ");
-                            float altura = scanner.nextFloat();
+                            int altura = scanner.nextInt();
 
                             persona p = new persona(nombre, apellido, peso, altura);
                             vectores.agregarPersona(p);
@@ -90,6 +93,8 @@ public class menu {
                             nombre = scanner.next();
                             int posicion = vectores.buscarPersona(nombre);
                             vectores.eliminarPersona(posicion);
+                            System.out.println("Persona " + nombre +
+                                    " eliminada del vector");
                         } else {
                             System.out.println("El vector esta vacio");
                         }
@@ -140,9 +145,9 @@ public class menu {
                             System.out.print("Ingrese el apellido: ");
                             String apellido = scanner.next();
                             System.out.print("Ingrese el peso: ");
-                            float peso = scanner.nextFloat();
+                            int peso = scanner.nextInt();
                             System.out.print("Ingrese la altura: ");
-                            float altura = scanner.nextFloat();
+                            int altura = scanner.nextInt();
 
                             persona p = new persona(nombre, apellido, peso, altura);
                             nuevaMatriz.agregar(p);
@@ -215,9 +220,9 @@ public class menu {
                     System.out.print("Ingrese el apellido: ");
                     String apellido = scanner.next();
                     System.out.print("Ingrese el peso: ");
-                    float peso = scanner.nextFloat();
+                    int peso = scanner.nextInt();
                     System.out.print("Ingrese la altura: ");
-                    float altura = scanner.nextFloat();
+                    int altura = scanner.nextInt();
 
                     persona p = new persona(nombre, apellido, peso, altura);
                     lista.agregarAlInicio(p);
@@ -266,9 +271,9 @@ public class menu {
                     System.out.print("Ingrese el apellido: ");
                     String apellido = scanner.next();
                     System.out.print("Ingrese el peso: ");
-                    float peso = scanner.nextFloat();
+                    int peso = scanner.nextInt();
                     System.out.print("Ingrese la altura: ");
-                    float altura = scanner.nextFloat();
+                    int altura = scanner.nextInt();
 
                     persona p = new persona(nombre, apellido, peso, altura);
                     nuevaPila.push(p);

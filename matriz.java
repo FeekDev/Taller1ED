@@ -56,7 +56,7 @@ public class matriz {
     }
 
     public boolean matrizLlena() {
-        if (this.f == this.fila && this.c == this.columna)
+        if (this.f == this.fila - 1 && this.c == this.columna)
             return true;
         else
             return false;
@@ -68,8 +68,8 @@ public class matriz {
                 matriz[this.f][this.c] = p;
                 this.c++;
             } else {
-                this.f++;
                 this.c = 0;
+                this.f++;
                 matriz[this.f][this.c] = p;
                 this.c++;
             }
@@ -82,7 +82,8 @@ public class matriz {
             for (int i = 0; i < this.fila; i++) {
                 for (int j = 0; j < this.columna; j++) {
                     if (matriz[i][j] != null) {
-                        System.out.print("[" + matriz[i][j].getNombre() + " " + matriz[i][j].getApellido() + "] ");
+                        System.out.print("[" + matriz[i][j].getNombre() + " " + matriz[i][j].getApellido() + " " 
+                        + matriz[i][j].getPeso() + " " + matriz[i][j].getAltura() + "] ");
                     } else {
                         System.out.print("[ ] ");
                     }
