@@ -19,7 +19,8 @@ public class menu {
             System.out.println("2) Matriz");
             System.out.println("3) Lista Simple");
             System.out.println("4) Pila (Proximamente)");
-            System.out.println("5) Salir");
+            System.out.println("5) Lista Doble");
+            System.out.println("6) Salir");
             System.out.print("Seleccione una opcion: ");
             opcionMenu = scanner.nextInt();
 
@@ -37,6 +38,9 @@ public class menu {
                     mostrarPila();
                     break;
                 case 5:
+                    mostrarListaDoble();
+                    break;
+                case 6:
                     System.out.println("Saliendo del programa...");
                     ;
                 default:
@@ -296,6 +300,58 @@ public class menu {
                         nuevaPila.buscarEnPila(nombreBuscar);
                     } else {
                         System.out.println("La pila esta vacia");
+                    }
+                default:
+                    break;
+            }
+
+        } while (opcion != 5);
+    }
+
+
+    public void mostrarListaDoble() {
+        listaDoble listaDoble = new listaDoble();
+
+        do {
+
+            mostrarOpciones();
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el nombre: ");
+                    String nombre = scanner.next();
+                    System.out.print("Ingrese el apellido: ");
+                    String apellido = scanner.next();
+                    System.out.print("Ingrese el peso: ");
+                    int peso = scanner.nextInt();
+                    System.out.print("Ingrese la altura: ");
+                    int altura = scanner.nextInt();
+
+                    persona p = new persona(nombre, apellido, peso, altura);
+                    listaDoble.agregarAlInicio(p);
+                    break;
+
+                case 2:
+                    //listaDoble.mostrarLista();
+                    break;
+                case 3:
+                    if (!listaDoble.listaVacia()) {
+                        String nombreEliminar;
+                        System.out.print("Ingrese el nombre de la persona: ");
+                        nombreEliminar = scanner.next();
+                        //listaDoble.eliminarDelInicio(nombreEliminar);
+                    } else {
+                        System.out.println("La lista esta vacia");
+                    }
+                    break;
+                case 4:
+                    if (!listaDoble.listaVacia()) {
+                        System.out.print("Ingrese el nombre a buscar: ");
+                        String nombreBuscar = scanner.next();
+                        //listaDoble.buscarPersona(nombreBuscar);
+                    } else {
+                        System.out.println("La lista esta vacia");
                     }
                 default:
                     break;
