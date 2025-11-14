@@ -27,7 +27,7 @@ public class listaDoble {
         if (!listaVacia()) {
             nodoDoble actual = inicio;
             while (actual != null) {
-                System.out.println(actual.getPersona().toString());
+                System.out.println(actual.dato.toString());
                 actual = actual.getSiguiente();
             }
         } else {
