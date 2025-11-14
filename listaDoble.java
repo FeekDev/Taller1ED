@@ -22,4 +22,56 @@ public class listaDoble {
             inicio = nuevo;
         }
     }
+
+    public void mostrarLista() {
+        if (!listaVacia()) {
+            nodoDoble actual = inicio;
+            while (actual != null) {
+                System.out.println(actual.getPersona().toString());
+                actual = actual.getSiguiente();
+            }
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
+
+    public void eliminarDelInicio(String nombre) {
+        if (!listaVacia()) {
+            if (inicio.getDato().getNombre().equalsIgnoreCase(nombre)) {
+                if (inicio == fin) {
+                    inicio = null;
+                    fin = null;
+                } else {
+                    inicio = inicio.getSiguiente();
+                    inicio.setAnterior(null);
+                }
+                System.out.println("Persona eliminada: " + nombre);
+            } else {
+                System.out.println("La persona no se encuentra al inicio de la lista");
+            }
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
+
+    public void buscarPersona(String nombre) {
+        if (!listaVacia()) {
+            nodoDoble actual = inicio;
+            boolean encontrado = false;
+            while (actual != null) {
+                if (actual.getDato().getNombre().equalsIgnoreCase(nombre)) {
+                    System.out.println("Persona encontrada: " + actual.getPersona().toString());
+                    encontrado = true;
+                    break;
+                }
+                actual = actual.getSiguiente();
+            }
+            if (!encontrado) {
+                System.out.println("Persona no encontrada: " + nombre);
+            }
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
+
 }

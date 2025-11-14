@@ -333,14 +333,14 @@ public class menu {
                     break;
 
                 case 2:
-                    //listaDoble.mostrarLista();
+                    listaDoble.mostrarLista();
                     break;
                 case 3:
                     if (!listaDoble.listaVacia()) {
                         String nombreEliminar;
                         System.out.print("Ingrese el nombre de la persona: ");
                         nombreEliminar = scanner.next();
-                        //listaDoble.eliminarDelInicio(nombreEliminar);
+                        listaDoble.eliminarDelInicio(nombreEliminar);
                     } else {
                         System.out.println("La lista esta vacia");
                     }
@@ -349,7 +349,7 @@ public class menu {
                     if (!listaDoble.listaVacia()) {
                         System.out.print("Ingrese el nombre a buscar: ");
                         String nombreBuscar = scanner.next();
-                        //listaDoble.buscarPersona(nombreBuscar);
+                        listaDoble.buscarPersona(nombreBuscar);
                     } else {
                         System.out.println("La lista esta vacia");
                     }
