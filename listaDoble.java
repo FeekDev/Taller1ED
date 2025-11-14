@@ -27,7 +27,7 @@ public class listaDoble {
         if (!listaVacia()) {
             nodoDoble actual = inicio;
             while (actual != null) {
-                System.out.println("Nombre: " + actual.dato.getNombre() + "Apellido:  " + actual.dato.getApellido() +
+                System.out.println("Nombre: " + actual.dato.getNombre() + " Apellido:  " + actual.dato.getApellido() +
                         ", Peso: " + actual.dato.getPeso() +
                         ", Altura: " + actual.dato.getAltura());
                 actual = actual.getSiguiente();
@@ -62,7 +62,7 @@ public class listaDoble {
             boolean encontrado = false;
             while (actual != null) {
                 if (actual.getDato().getNombre().equalsIgnoreCase(nombre)) {
-                    System.out.println("Nombre: " + actual.getDato().getNombre() + "Apellido: " + actual.getDato().getApellido() +
+                    System.out.println("Nombre: " + actual.getDato().getNombre() + " Apellido: " + actual.getDato().getApellido() +
                             ", Peso: " + actual.getDato().getPeso() +
                             ", Altura: " + actual.getDato().getAltura());
                     encontrado = true;
