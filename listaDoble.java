@@ -60,7 +60,7 @@ public class listaDoble {
             boolean encontrado = false;
             while (actual != null) {
                 if (actual.getDato().getNombre().equalsIgnoreCase(nombre)) {
-                    System.out.println("Persona encontrada: " + actual.getPersona().toString());
+                    System.out.println("Persona encontrada: " + actual.getDato().toString());
                     encontrado = true;
                     break;
                 }
